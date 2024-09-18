@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Xml;
 
 namespace EvaluaciónParcial2Banco.Models
 {
@@ -9,8 +10,8 @@ namespace EvaluaciónParcial2Banco.Models
     {
         public int ID_Transaccion { get; set; }
         public int ID_Cuenta { get; set; }
-        public string Fecha { get; set; }
-        public double Monto { get; set; }
+        public DateTime Fecha { get; set; }
+        public decimal Monto { get; set; }
 
         // Constructor vacío
         public TransaccionesModel() { }
@@ -40,8 +41,8 @@ namespace EvaluaciónParcial2Banco.Models
                                 {
                                     ID_Transaccion = (int)lector["ID_Transaccion"],
                                     ID_Cuenta = (int)lector["ID_Cuenta"],
-                                    Fecha = lector["Fecha"].ToString(),
-                                    Monto = (double)lector["Monto"]
+                                    Fecha = Convert.ToDateTime(lector["Fecha"]),
+                                    Monto = Convert.ToDecimal(lector["Monto"])
                                 };
                             }
                         }
@@ -142,8 +143,8 @@ namespace EvaluaciónParcial2Banco.Models
                                 {
                                     ID_Transaccion = (int)lector["ID_Transaccion"],
                                     ID_Cuenta = (int)lector["ID_Cuenta"],
-                                    Fecha = lector["Fecha"].ToString(),
-                                    Monto = (double)lector["Monto"]
+                                    Fecha = Convert.ToDateTime(lector["Fecha"]),
+                                    Monto = Convert.ToDecimal(lector["Monto"])
                                 };
                             }
                         }
@@ -182,8 +183,8 @@ namespace EvaluaciónParcial2Banco.Models
                                 {
                                     ID_Transaccion = (int)lector["ID_Transaccion"],
                                     ID_Cuenta = (int)lector["ID_Cuenta"],
-                                    Fecha = lector["Fecha"].ToString(),
-                                    Monto = (double)lector["Monto"]
+                                    Fecha = Convert.ToDateTime(lector["Fecha"]),
+                                    Monto = Convert.ToDecimal(lector["Monto"])
                                 });
                             }
                         }
