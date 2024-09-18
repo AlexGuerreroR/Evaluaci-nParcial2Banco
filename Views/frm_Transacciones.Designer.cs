@@ -40,11 +40,13 @@
             this.lbl_ListaTransacciones = new System.Windows.Forms.Label();
             this.lbl_NuevaCuenta = new System.Windows.Forms.Label();
             this.dtp_Fecha = new System.Windows.Forms.DateTimePicker();
+            this.lbl_Tipo = new System.Windows.Forms.Label();
+            this.cmb_TipoTransaccion = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // btn_Agregar
             // 
-            this.btn_Agregar.Location = new System.Drawing.Point(81, 346);
+            this.btn_Agregar.Location = new System.Drawing.Point(81, 392);
             this.btn_Agregar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_Agregar.Name = "btn_Agregar";
             this.btn_Agregar.Size = new System.Drawing.Size(133, 74);
@@ -57,7 +59,7 @@
             // 
             this.lst_Transacciones.FormattingEnabled = true;
             this.lst_Transacciones.ItemHeight = 25;
-            this.lst_Transacciones.Location = new System.Drawing.Point(565, 112);
+            this.lst_Transacciones.Location = new System.Drawing.Point(617, 112);
             this.lst_Transacciones.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lst_Transacciones.Name = "lst_Transacciones";
             this.lst_Transacciones.Size = new System.Drawing.Size(439, 354);
@@ -67,7 +69,7 @@
             // lbl_IdCuenta
             // 
             this.lbl_IdCuenta.AutoSize = true;
-            this.lbl_IdCuenta.Location = new System.Drawing.Point(46, 180);
+            this.lbl_IdCuenta.Location = new System.Drawing.Point(116, 185);
             this.lbl_IdCuenta.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_IdCuenta.Name = "lbl_IdCuenta";
             this.lbl_IdCuenta.Size = new System.Drawing.Size(97, 25);
@@ -76,7 +78,7 @@
             // 
             // txt_IdCuenta
             // 
-            this.txt_IdCuenta.Location = new System.Drawing.Point(161, 180);
+            this.txt_IdCuenta.Location = new System.Drawing.Point(231, 185);
             this.txt_IdCuenta.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txt_IdCuenta.Name = "txt_IdCuenta";
             this.txt_IdCuenta.Size = new System.Drawing.Size(351, 30);
@@ -84,7 +86,7 @@
             // 
             // txt_Monto
             // 
-            this.txt_Monto.Location = new System.Drawing.Point(161, 279);
+            this.txt_Monto.Location = new System.Drawing.Point(231, 284);
             this.txt_Monto.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txt_Monto.Name = "txt_Monto";
             this.txt_Monto.Size = new System.Drawing.Size(351, 30);
@@ -93,7 +95,7 @@
             // lbl_Monto
             // 
             this.lbl_Monto.AutoSize = true;
-            this.lbl_Monto.Location = new System.Drawing.Point(76, 279);
+            this.lbl_Monto.Location = new System.Drawing.Point(146, 284);
             this.lbl_Monto.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_Monto.Name = "lbl_Monto";
             this.lbl_Monto.Size = new System.Drawing.Size(67, 25);
@@ -103,7 +105,7 @@
             // lbl_Fecha
             // 
             this.lbl_Fecha.AutoSize = true;
-            this.lbl_Fecha.Location = new System.Drawing.Point(76, 228);
+            this.lbl_Fecha.Location = new System.Drawing.Point(146, 233);
             this.lbl_Fecha.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_Fecha.Name = "lbl_Fecha";
             this.lbl_Fecha.Size = new System.Drawing.Size(67, 25);
@@ -112,7 +114,7 @@
             // 
             // btn_Eliminar
             // 
-            this.btn_Eliminar.Location = new System.Drawing.Point(255, 346);
+            this.btn_Eliminar.Location = new System.Drawing.Point(255, 392);
             this.btn_Eliminar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_Eliminar.Name = "btn_Eliminar";
             this.btn_Eliminar.Size = new System.Drawing.Size(128, 74);
@@ -123,7 +125,7 @@
             // 
             // btn_Cancelar
             // 
-            this.btn_Cancelar.Location = new System.Drawing.Point(411, 346);
+            this.btn_Cancelar.Location = new System.Drawing.Point(415, 392);
             this.btn_Cancelar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_Cancelar.Name = "btn_Cancelar";
             this.btn_Cancelar.Size = new System.Drawing.Size(121, 74);
@@ -136,7 +138,7 @@
             // 
             this.lbl_ListaTransacciones.AutoSize = true;
             this.lbl_ListaTransacciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_ListaTransacciones.Location = new System.Drawing.Point(663, 67);
+            this.lbl_ListaTransacciones.Location = new System.Drawing.Point(699, 72);
             this.lbl_ListaTransacciones.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_ListaTransacciones.Name = "lbl_ListaTransacciones";
             this.lbl_ListaTransacciones.Size = new System.Drawing.Size(236, 25);
@@ -146,25 +148,49 @@
             // lbl_NuevaCuenta
             // 
             this.lbl_NuevaCuenta.AutoSize = true;
-            this.lbl_NuevaCuenta.Location = new System.Drawing.Point(250, 127);
+            this.lbl_NuevaCuenta.Location = new System.Drawing.Point(284, 136);
             this.lbl_NuevaCuenta.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_NuevaCuenta.Name = "lbl_NuevaCuenta";
-            this.lbl_NuevaCuenta.Size = new System.Drawing.Size(138, 25);
+            this.lbl_NuevaCuenta.Size = new System.Drawing.Size(182, 25);
             this.lbl_NuevaCuenta.TabIndex = 13;
-            this.lbl_NuevaCuenta.Text = "Nueva Cuenta";
+            this.lbl_NuevaCuenta.Text = "Nueva Transacción";
             // 
             // dtp_Fecha
             // 
-            this.dtp_Fecha.Location = new System.Drawing.Point(161, 228);
+            this.dtp_Fecha.Location = new System.Drawing.Point(231, 233);
             this.dtp_Fecha.Name = "dtp_Fecha";
             this.dtp_Fecha.Size = new System.Drawing.Size(351, 30);
             this.dtp_Fecha.TabIndex = 14;
+            // 
+            // lbl_Tipo
+            // 
+            this.lbl_Tipo.AutoSize = true;
+            this.lbl_Tipo.Location = new System.Drawing.Point(22, 330);
+            this.lbl_Tipo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_Tipo.Name = "lbl_Tipo";
+            this.lbl_Tipo.Size = new System.Drawing.Size(191, 25);
+            this.lbl_Tipo.TabIndex = 15;
+            this.lbl_Tipo.Text = "Tipo de Transacción";
+            // 
+            // cmb_TipoTransaccion
+            // 
+            this.cmb_TipoTransaccion.FormattingEnabled = true;
+            this.cmb_TipoTransaccion.Items.AddRange(new object[] {
+            "Seleccione una opción",
+            "Depósito",
+            "Retiro"});
+            this.cmb_TipoTransaccion.Location = new System.Drawing.Point(231, 327);
+            this.cmb_TipoTransaccion.Name = "cmb_TipoTransaccion";
+            this.cmb_TipoTransaccion.Size = new System.Drawing.Size(351, 33);
+            this.cmb_TipoTransaccion.TabIndex = 16;
             // 
             // frm_Transacciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1033, 516);
+            this.ClientSize = new System.Drawing.Size(1116, 516);
+            this.Controls.Add(this.cmb_TipoTransaccion);
+            this.Controls.Add(this.lbl_Tipo);
             this.Controls.Add(this.dtp_Fecha);
             this.Controls.Add(this.lbl_NuevaCuenta);
             this.Controls.Add(this.lbl_ListaTransacciones);
@@ -200,5 +226,7 @@
         private System.Windows.Forms.Label lbl_ListaTransacciones;
         private System.Windows.Forms.Label lbl_NuevaCuenta;
         private System.Windows.Forms.DateTimePicker dtp_Fecha;
+        private System.Windows.Forms.Label lbl_Tipo;
+        private System.Windows.Forms.ComboBox cmb_TipoTransaccion;
     }
 }

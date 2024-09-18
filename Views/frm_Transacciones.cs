@@ -26,9 +26,8 @@ namespace EvaluaciónParcial2Banco.Views
         private void frm_Transacciones_Load(object sender, EventArgs e)
         {
             cargalista();
+            cmb_TipoTransaccion.SelectedIndex = 0;
         }
-
-
 
         private void btn_Agregar_Click(object sender, EventArgs e)
         {
@@ -41,9 +40,10 @@ namespace EvaluaciónParcial2Banco.Views
                     ID_Transaccion = this.id,
                     ID_Cuenta = int.Parse(txt_IdCuenta.Text.Trim()),
                     Fecha = DateTime.Parse(dtp_Fecha.Text.Trim()),
-                    Monto = decimal.Parse(txt_Monto.Text.Trim())
+                    Monto = decimal.Parse(txt_Monto.Text.Trim()),
+                    Tipo_Transaccion = cmb_TipoTransaccion.SelectedItem.ToString()
                 };
-
+                MessageBox.Show(cmb_TipoTransaccion.SelectedItem.ToString());
                 if (this.id != 0)
                 {
                     res = TransaccionesModel.Actualizar(transaccion);
@@ -67,57 +67,52 @@ namespace EvaluaciónParcial2Banco.Views
             }
         }
 
-
-
-
-
-
-
-
         private void cargalista()
+        {
+            var listaTransacciones = transaccionesController.ObtenerTodasLasTransacciones();
+            lst_Transacciones.DataSource = null;
+            lst_Transacciones.DataSource = listaTransacciones;
+            lst_Transacciones.DisplayMember = "ID_Cuenta";
+            lst_Transacciones.ValueMember = "ID_Transaccion";
+        }
+
+     
+
+        public bool comprobar()
+        {
+            if (txt_IdCuenta.Text.Trim() == "")
             {
-                var listaTransacciones = transaccionesController.ObtenerTodasLasTransacciones();
-                lst_Transacciones.DataSource = null;
-                lst_Transacciones.DataSource = listaTransacciones;
-                lst_Transacciones.DisplayMember = "ID_Cuenta";
-                lst_Transacciones.ValueMember = "ID_Transaccion";
+                MessageBox.Show("Ingrese el ID de la cuenta");
+                return false;
             }
-
-           
-
-            public bool comprobar()
+            else if (dtp_Fecha.Text.Trim() == "")
             {
-                if (txt_IdCuenta.Text.Trim() == "")
-                {
-                    MessageBox.Show("Ingrese el ID de la cuenta");
-                    return false;
-                }
-                else if (dtp_Fecha.Text.Trim() == "")
-                {
-                    MessageBox.Show("Ingrese la fecha de la transacción");
-                    return false;
-                }
-                else if (txt_Monto.Text.Trim() == "")
-                {
-                    MessageBox.Show("Ingrese el monto de la transacción");
-                    return false;
-                }
-                else
-                {
-                    return true;
-                }
+                MessageBox.Show("Ingrese la fecha de la transacción");
+                return false;
             }
-
-            public void LimpiarForm()
+            else if (txt_Monto.Text.Trim() == "")
             {
-                txt_IdCuenta.Text = string.Empty;
-                dtp_Fecha.Text = string.Empty;
-                txt_Monto.Text = string.Empty;
+                MessageBox.Show("Ingrese el monto de la transacción");
+                return false;
             }
+            else if (cmb_TipoTransaccion.SelectedItem == null)
+            {
+                MessageBox.Show("Seleccione el tipo de transacción");
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
 
-            
-
-      
+        public void LimpiarForm()
+        {
+            txt_IdCuenta.Text = string.Empty;
+            dtp_Fecha.Text = string.Empty;
+            txt_Monto.Text = string.Empty;
+            cmb_TipoTransaccion.SelectedIndex = 0;
+        }
 
         private void btn_Eliminar_Click_1(object sender, EventArgs e)
         {
@@ -155,6 +150,7 @@ namespace EvaluaciónParcial2Banco.Views
                 txt_IdCuenta.Text = transaccion.ID_Cuenta.ToString();
                 dtp_Fecha.Value = transaccion.Fecha;
                 txt_Monto.Text = transaccion.Monto.ToString();
+                cmb_TipoTransaccion.SelectedItem = transaccion.Tipo_Transaccion;
             }
             else
             {

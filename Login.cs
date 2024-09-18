@@ -37,6 +37,7 @@ namespace EvaluaciónParcial2Banco
 
                     frm_MenuPrincipal _frm_usuarios = new frm_MenuPrincipal();
                     this.Hide();
+                    _frm_usuarios.AjustarMenuSegunRol(usuariomodel.Roles);
                     _frm_usuarios.Show();
                 }
                 else
@@ -58,5 +59,7 @@ namespace EvaluaciónParcial2Banco
             txt_Contrasenia.Text = "";
            
         }
+
+        
     }
 }

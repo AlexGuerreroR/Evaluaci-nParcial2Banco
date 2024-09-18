@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Xml;
 
 namespace EvaluaciónParcial2Banco.Models
 {
@@ -12,6 +11,7 @@ namespace EvaluaciónParcial2Banco.Models
         public int ID_Cuenta { get; set; }
         public DateTime Fecha { get; set; }
         public decimal Monto { get; set; }
+        public string Tipo_Transaccion { get; set; } 
 
         // Constructor vacío
         public TransaccionesModel() { }
@@ -23,15 +23,16 @@ namespace EvaluaciónParcial2Banco.Models
             {
                 using (var conexion = Conexion.GetConnection())
                 {
-                    var consulta = "INSERT INTO Transacciones (ID_Cuenta, Fecha, Monto) " +
-                                   "OUTPUT INSERTED.ID_Transaccion, INSERTED.ID_Cuenta, INSERTED.Fecha, INSERTED.Monto " +
-                                   "VALUES (@ID_Cuenta, @Fecha, @Monto)";
+                    var consulta = "INSERT INTO Transacciones (ID_Cuenta, Fecha, Monto, Tipo_Transaccion) " +
+                                   "OUTPUT INSERTED.ID_Transaccion, INSERTED.ID_Cuenta, INSERTED.Fecha, INSERTED.Monto, INSERTED.Tipo_Transaccion " +
+                                   "VALUES (@ID_Cuenta, @Fecha, @Monto, @Tipo_Transaccion)";
 
                     using (var comando = new SqlCommand(consulta, conexion))
                     {
                         comando.Parameters.AddWithValue("@ID_Cuenta", transaccion.ID_Cuenta);
                         comando.Parameters.AddWithValue("@Fecha", transaccion.Fecha);
                         comando.Parameters.AddWithValue("@Monto", transaccion.Monto);
+                        comando.Parameters.AddWithValue("@Tipo_Transaccion", transaccion.Tipo_Transaccion);
 
                         using (var lector = comando.ExecuteReader())
                         {
@@ -42,7 +43,8 @@ namespace EvaluaciónParcial2Banco.Models
                                     ID_Transaccion = (int)lector["ID_Transaccion"],
                                     ID_Cuenta = (int)lector["ID_Cuenta"],
                                     Fecha = Convert.ToDateTime(lector["Fecha"]),
-                                    Monto = Convert.ToDecimal(lector["Monto"])
+                                    Monto = Convert.ToDecimal(lector["Monto"]),
+                                    Tipo_Transaccion = lector["Tipo_Transaccion"].ToString()
                                 };
                             }
                         }
@@ -67,7 +69,7 @@ namespace EvaluaciónParcial2Banco.Models
             {
                 using (var conexion = Conexion.GetConnection())
                 {
-                    var consulta = "UPDATE Transacciones SET ID_Cuenta = @ID_Cuenta, Fecha = @Fecha, Monto = @Monto WHERE ID_Transaccion = @ID_Transaccion";
+                    var consulta = "UPDATE Transacciones SET ID_Cuenta = @ID_Cuenta, Fecha = @Fecha, Monto = @Monto, Tipo_Transaccion = @Tipo_Transaccion WHERE ID_Transaccion = @ID_Transaccion";
 
                     using (var comando = new SqlCommand(consulta, conexion))
                     {
@@ -75,11 +77,12 @@ namespace EvaluaciónParcial2Banco.Models
                         comando.Parameters.AddWithValue("@ID_Cuenta", transaccion.ID_Cuenta);
                         comando.Parameters.AddWithValue("@Fecha", transaccion.Fecha);
                         comando.Parameters.AddWithValue("@Monto", transaccion.Monto);
+                        comando.Parameters.AddWithValue("@Tipo_Transaccion", transaccion.Tipo_Transaccion);
 
                         comando.ExecuteNonQuery();
                     }
                 }
-                return "OK";
+                return "ok";
             }
             catch (SqlException ex)
             {
@@ -108,7 +111,7 @@ namespace EvaluaciónParcial2Banco.Models
                         comando.ExecuteNonQuery();
                     }
                 }
-                return "OK";
+                return "ok";
             }
             catch (SqlException ex)
             {
@@ -144,7 +147,8 @@ namespace EvaluaciónParcial2Banco.Models
                                     ID_Transaccion = (int)lector["ID_Transaccion"],
                                     ID_Cuenta = (int)lector["ID_Cuenta"],
                                     Fecha = Convert.ToDateTime(lector["Fecha"]),
-                                    Monto = Convert.ToDecimal(lector["Monto"])
+                                    Monto = Convert.ToDecimal(lector["Monto"]),
+                                    Tipo_Transaccion = lector["Tipo_Transaccion"].ToString()
                                 };
                             }
                         }
@@ -184,7 +188,8 @@ namespace EvaluaciónParcial2Banco.Models
                                     ID_Transaccion = (int)lector["ID_Transaccion"],
                                     ID_Cuenta = (int)lector["ID_Cuenta"],
                                     Fecha = Convert.ToDateTime(lector["Fecha"]),
-                                    Monto = Convert.ToDecimal(lector["Monto"])
+                                    Monto = Convert.ToDecimal(lector["Monto"]),
+                                    Tipo_Transaccion = lector["Tipo_Transaccion"].ToString()
                                 });
                             }
                         }

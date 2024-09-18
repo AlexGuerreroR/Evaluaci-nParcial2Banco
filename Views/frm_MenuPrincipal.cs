@@ -16,7 +16,17 @@ namespace EvaluaciónParcial2Banco.Views
         {
             InitializeComponent();
         }
-
+        public void AjustarMenuSegunRol(string rol)
+        {
+            if (rol == "Cajero")
+            {
+                UsuariosToolStripMenuItem1.Enabled = false; 
+            }
+            else if (rol == "Administrador")
+            {
+                UsuariosToolStripMenuItem1.Enabled = true; 
+            }
+        }
         private void UsuariosToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             frm_Usuarios _Usuarios = new frm_Usuarios();
@@ -45,6 +55,12 @@ namespace EvaluaciónParcial2Banco.Views
         {
             frm_Transacciones _Transacciones = new frm_Transacciones();
             _Transacciones.ShowDialog();
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           
+            Application.Exit();
         }
     }
 }
