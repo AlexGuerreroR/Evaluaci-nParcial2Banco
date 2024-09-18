@@ -10,7 +10,7 @@ namespace EvaluaciónParcial2Banco.Views
     {
 
         ClientesModel cliente = new ClientesModel();    
-        ClientesController clientesControllers = new ClientesController();
+        ClientesController _clientesControllers = new ClientesController();
         int id = 0;
         public frm_Clientes()
         {
@@ -26,7 +26,7 @@ namespace EvaluaciónParcial2Banco.Views
         private void cargalista()
         {
 
-            var listaClientes = clientesControllers.ObtenerTodosLosClientes();
+            var listaClientes = _clientesControllers.ObtenerTodosLosClientes();
             lst_Clientes.DataSource = null;
             lst_Clientes.DataSource = listaClientes;
             lst_Clientes.DisplayMember = "Nombre";
@@ -56,7 +56,7 @@ namespace EvaluaciónParcial2Banco.Views
                 }
                 else
                 {
-                    resultado = clientesControllers.InsertarCliente(cliente);
+                    resultado = _clientesControllers.InsertarCliente(cliente);
                     res = resultado.ID_Cliente > 0 ? "ok" : "error";
                 }
                 if (res == "ok")
@@ -121,7 +121,7 @@ namespace EvaluaciónParcial2Banco.Views
 
             if (lst_Clientes.SelectedValue != null)
             {
-                var cliente = clientesControllers.ObtenerClientePorId((int)lst_Clientes.SelectedValue);
+                var cliente = _clientesControllers.ObtenerClientePorId((int)lst_Clientes.SelectedValue);
                 this.id = (int)cliente.ID_Cliente;
                 txt_NombreCliente.Text = cliente.Nombre;
                 txt_Cedula.Text = cliente.Cedula;
@@ -141,7 +141,7 @@ namespace EvaluaciónParcial2Banco.Views
             DialogResult result = MessageBox.Show("Desea Eliminar el Cliente?", "Formulario de Clientes", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
-                var usuario = clientesControllers.EliminarCliente(Convert.ToInt32(lst_Clientes.SelectedValue));
+                var usuario = _clientesControllers.EliminarCliente(Convert.ToInt32(lst_Clientes.SelectedValue));
                 if (lst_Clientes.SelectedItem == null)
                 {
                     ErrorHandler.ManejarEliminar();

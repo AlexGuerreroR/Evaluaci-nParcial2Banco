@@ -62,5 +62,11 @@ namespace EvaluaciónParcial2Banco.Views
            
             Application.Exit();
         }
+
+        private void reportesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_Reportes _Reportes = new frm_Reportes();
+            _Reportes.ShowDialog();
+        }
     }
 }

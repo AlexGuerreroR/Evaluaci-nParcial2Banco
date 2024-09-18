@@ -60,6 +60,6 @@ namespace EvaluaciónParcial2Banco
            
         }
 
-        
+      
     }
 }

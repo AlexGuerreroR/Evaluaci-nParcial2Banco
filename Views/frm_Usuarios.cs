@@ -8,7 +8,7 @@ namespace EvaluaciónParcial2Banco.Views
 {
     public partial class frm_Usuarios : Form
     {
-        UsuariosController usuariosController = new UsuariosController();
+        UsuariosController _usuariosController = new UsuariosController();
         UsuariosModel usuariosModel = new UsuariosModel();
         int id = 0;
 
@@ -28,7 +28,7 @@ namespace EvaluaciónParcial2Banco.Views
         private void cargalista()
         {
 
-            var listausuarios = usuariosController.ObtenerUsuarios();
+            var listausuarios = _usuariosController.ObtenerUsuarios();
             lst_Usuarios.DataSource = null;
             lst_Usuarios.DataSource = listausuarios;
             lst_Usuarios.DisplayMember = "NombreUsuario";
@@ -55,7 +55,7 @@ namespace EvaluaciónParcial2Banco.Views
                 }
                 else
                 {
-                    resultado = usuariosController.InsertarUsuario(usuario);
+                    resultado = _usuariosController.InsertarUsuario(usuario);
                     res = resultado.ID > 0 ? "ok" : "error";
                 }
                 if (res == "ok")
@@ -127,7 +127,7 @@ namespace EvaluaciónParcial2Banco.Views
             DialogResult result = MessageBox.Show("Desea Eliminar el usuario?", "Formulario de usuarios", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
-                var usuario = usuariosController.EliminarUsuario(Convert.ToInt32(lst_Usuarios.SelectedValue));
+                var usuario = _usuariosController.EliminarUsuario(Convert.ToInt32(lst_Usuarios.SelectedValue));
                 if (lst_Usuarios.SelectedItem == null)
                 {
                     ErrorHandler.ManejarEliminar();
@@ -148,7 +148,7 @@ namespace EvaluaciónParcial2Banco.Views
         {
             if (lst_Usuarios.SelectedValue != null)
             {
-                var usuario = usuariosController.ObtenerUsuarioPorId((int)lst_Usuarios.SelectedValue);
+                var usuario = _usuariosController.ObtenerUsuarioPorId((int)lst_Usuarios.SelectedValue);
                 this.id = (int)usuario.ID;
                 txt_NombreUsuario.Text = usuario.NombreUsuario;
                 txt_Contrasenia.Text = usuario.Password;

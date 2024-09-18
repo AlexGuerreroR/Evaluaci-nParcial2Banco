@@ -14,7 +14,7 @@ namespace EvaluaciónParcial2Banco.Views
 {
     public partial class frm_Transacciones : Form
     {
-        TransaccionesController transaccionesController = new TransaccionesController();
+        TransaccionesController _transaccionesController = new TransaccionesController();
         TransaccionesModel transaccionesModel = new TransaccionesModel();
         int id = 0;
 
@@ -50,7 +50,7 @@ namespace EvaluaciónParcial2Banco.Views
                 }
                 else
                 {
-                    resultado = transaccionesController.InsertarTransaccion(transaccion);
+                    resultado = _transaccionesController.InsertarTransaccion(transaccion);
                     res = resultado.ID_Transaccion > 0 ? "ok" : "error";
                 }
 
@@ -69,10 +69,10 @@ namespace EvaluaciónParcial2Banco.Views
 
         private void cargalista()
         {
-            var listaTransacciones = transaccionesController.ObtenerTodasLasTransacciones();
+            var listaTransacciones = _transaccionesController.ObtenerTodasLasTransacciones();
             lst_Transacciones.DataSource = null;
             lst_Transacciones.DataSource = listaTransacciones;
-            lst_Transacciones.DisplayMember = "ID_Cuenta";
+            lst_Transacciones.DisplayMember = "Tipo_Transaccion";
             lst_Transacciones.ValueMember = "ID_Transaccion";
         }
 
@@ -119,7 +119,7 @@ namespace EvaluaciónParcial2Banco.Views
             DialogResult result = MessageBox.Show("¿Desea eliminar la transacción?", "Formulario de transacciones", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
-                var transaccion = transaccionesController.EliminarTransaccion(Convert.ToInt32(lst_Transacciones.SelectedValue));
+                var transaccion = _transaccionesController.EliminarTransaccion(Convert.ToInt32(lst_Transacciones.SelectedValue));
                 if (lst_Transacciones.SelectedItem == null)
                 {
                     MessageBox.Show("Error al eliminar la transacción");
@@ -145,7 +145,7 @@ namespace EvaluaciónParcial2Banco.Views
         {
             if (lst_Transacciones.SelectedValue != null)
             {
-                var transaccion = transaccionesController.ObtenerTransaccionPorId((int)lst_Transacciones.SelectedValue);
+                var transaccion = _transaccionesController.ObtenerTransaccionPorId((int)lst_Transacciones.SelectedValue);
                 this.id = transaccion.ID_Transaccion;
                 txt_IdCuenta.Text = transaccion.ID_Cuenta.ToString();
                 dtp_Fecha.Value = transaccion.Fecha;

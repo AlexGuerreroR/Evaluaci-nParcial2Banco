@@ -40,7 +40,7 @@
             // 
             // txt_Usuario
             // 
-            this.txt_Usuario.Location = new System.Drawing.Point(153, 109);
+            this.txt_Usuario.Location = new System.Drawing.Point(124, 79);
             this.txt_Usuario.Name = "txt_Usuario";
             this.txt_Usuario.Size = new System.Drawing.Size(252, 30);
             this.txt_Usuario.TabIndex = 0;
@@ -58,7 +58,7 @@
             // lbl_Usuario
             // 
             this.lbl_Usuario.AutoSize = true;
-            this.lbl_Usuario.Location = new System.Drawing.Point(56, 116);
+            this.lbl_Usuario.Location = new System.Drawing.Point(47, 86);
             this.lbl_Usuario.Name = "lbl_Usuario";
             this.lbl_Usuario.Size = new System.Drawing.Size(79, 25);
             this.lbl_Usuario.TabIndex = 2;
@@ -67,7 +67,7 @@
             // lbl_Contrasenia
             // 
             this.lbl_Contrasenia.AutoSize = true;
-            this.lbl_Contrasenia.Location = new System.Drawing.Point(20, 180);
+            this.lbl_Contrasenia.Location = new System.Drawing.Point(11, 136);
             this.lbl_Contrasenia.Name = "lbl_Contrasenia";
             this.lbl_Contrasenia.Size = new System.Drawing.Size(114, 25);
             this.lbl_Contrasenia.TabIndex = 3;
@@ -75,7 +75,7 @@
             // 
             // txt_Contrasenia
             // 
-            this.txt_Contrasenia.Location = new System.Drawing.Point(153, 175);
+            this.txt_Contrasenia.Location = new System.Drawing.Point(124, 131);
             this.txt_Contrasenia.Name = "txt_Contrasenia";
             this.txt_Contrasenia.PasswordChar = '*';
             this.txt_Contrasenia.Size = new System.Drawing.Size(252, 30);
@@ -83,9 +83,9 @@
             // 
             // btn_Ingresar
             // 
-            this.btn_Ingresar.Location = new System.Drawing.Point(88, 257);
+            this.btn_Ingresar.Location = new System.Drawing.Point(106, 207);
             this.btn_Ingresar.Name = "btn_Ingresar";
-            this.btn_Ingresar.Size = new System.Drawing.Size(107, 51);
+            this.btn_Ingresar.Size = new System.Drawing.Size(99, 51);
             this.btn_Ingresar.TabIndex = 5;
             this.btn_Ingresar.Text = "Ingresar";
             this.btn_Ingresar.UseVisualStyleBackColor = true;
@@ -93,7 +93,7 @@
             // 
             // btn_Cancelar
             // 
-            this.btn_Cancelar.Location = new System.Drawing.Point(269, 257);
+            this.btn_Cancelar.Location = new System.Drawing.Point(237, 207);
             this.btn_Cancelar.Name = "btn_Cancelar";
             this.btn_Cancelar.Size = new System.Drawing.Size(107, 51);
             this.btn_Cancelar.TabIndex = 6;
@@ -104,7 +104,7 @@
             // lbl_mensaje
             // 
             this.lbl_mensaje.AutoSize = true;
-            this.lbl_mensaje.Location = new System.Drawing.Point(148, 218);
+            this.lbl_mensaje.Location = new System.Drawing.Point(101, 179);
             this.lbl_mensaje.Name = "lbl_mensaje";
             this.lbl_mensaje.Size = new System.Drawing.Size(0, 25);
             this.lbl_mensaje.TabIndex = 7;
@@ -113,7 +113,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(451, 340);
+            this.ClientSize = new System.Drawing.Size(426, 282);
             this.Controls.Add(this.lbl_mensaje);
             this.Controls.Add(this.btn_Cancelar);
             this.Controls.Add(this.btn_Ingresar);
