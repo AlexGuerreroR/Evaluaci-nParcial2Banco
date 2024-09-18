@@ -68,5 +68,6 @@ namespace EvaluaciónParcial2Banco.Views
             frm_Reportes _Reportes = new frm_Reportes();
             _Reportes.ShowDialog();
         }
+
     }
 }
