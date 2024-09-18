@@ -10,8 +10,7 @@ namespace EvaluaciónParcial2Banco.Models
         public int ID_Cuenta { get; set; }
         public string Tipo { get; set; }
         public string ID_Cliente { get; set; }
-        public string Fecha_Apertura { get; set; }
-        public double Saldo { get; set; }
+        public DateTime Fecha_Apertura { get; set; }
         public string ID_Sucursal { get; set; }
 
         // Constructor vacío
@@ -24,16 +23,15 @@ namespace EvaluaciónParcial2Banco.Models
             {
                 using (var conexion = Conexion.GetConnection())
                 {
-                    var consulta = "INSERT INTO Cuentas (Tipo, ID_Cliente, Fecha_Apertura, Saldo, ID_Sucursal) " +
-                                   "OUTPUT INSERTED.ID_Cuenta, INSERTED.Tipo, INSERTED.ID_Cliente, INSERTED.Fecha_Apertura, INSERTED.Saldo, INSERTED.ID_Sucursal " +
-                                   "VALUES (@Tipo, @ID_Cliente, @Fecha_Apertura, @Saldo, @ID_Sucursal)";
+                    var consulta = "INSERT INTO Cuentas (Tipo, ID_Cliente, Fecha_Apertura, ID_Sucursal) " +
+                                   "OUTPUT INSERTED.ID_Cuenta, INSERTED.Tipo, INSERTED.ID_Cliente, INSERTED.Fecha_Apertura, INSERTED.ID_Sucursal " +
+                                   "VALUES (@Tipo, @ID_Cliente, @Fecha_Apertura,  @ID_Sucursal)";
 
                     using (var comando = new SqlCommand(consulta, conexion))
                     {
                         comando.Parameters.AddWithValue("@Tipo", cuenta.Tipo);
                         comando.Parameters.AddWithValue("@ID_Cliente", cuenta.ID_Cliente);
                         comando.Parameters.AddWithValue("@Fecha_Apertura", cuenta.Fecha_Apertura);
-                        comando.Parameters.AddWithValue("@Saldo", cuenta.Saldo);
                         comando.Parameters.AddWithValue("@ID_Sucursal", cuenta.ID_Sucursal);
 
                         using (var lector = comando.ExecuteReader())
@@ -45,8 +43,7 @@ namespace EvaluaciónParcial2Banco.Models
                                     ID_Cuenta = (int)lector["ID_Cuenta"],
                                     Tipo = lector["Tipo"].ToString(),
                                     ID_Cliente = lector["ID_Cliente"].ToString(),
-                                    Fecha_Apertura = lector["Fecha_Apertura"].ToString(),
-                                    Saldo = (double)lector["Saldo"],
+                                    Fecha_Apertura = Convert.ToDateTime(lector["Fecha_Apertura"]),
                                     ID_Sucursal = lector["ID_Sucursal"].ToString()
                                 };
                             }
@@ -72,7 +69,7 @@ namespace EvaluaciónParcial2Banco.Models
             {
                 using (var conexion = Conexion.GetConnection())
                 {
-                    var consulta = "UPDATE Cuentas SET Tipo = @Tipo, ID_Cliente = @ID_Cliente, Fecha_Apertura = @Fecha_Apertura, Saldo = @Saldo, ID_Sucursal = @ID_Sucursal WHERE ID_Cuenta = @ID_Cuenta";
+                    var consulta = "UPDATE Cuentas SET Tipo = @Tipo, ID_Cliente = @ID_Cliente, Fecha_Apertura = @Fecha_Apertura, ID_Sucursal = @ID_Sucursal WHERE ID_Cuenta = @ID_Cuenta";
 
                     using (var comando = new SqlCommand(consulta, conexion))
                     {
@@ -80,7 +77,6 @@ namespace EvaluaciónParcial2Banco.Models
                         comando.Parameters.AddWithValue("@Tipo", cuenta.Tipo);
                         comando.Parameters.AddWithValue("@ID_Cliente", cuenta.ID_Cliente);
                         comando.Parameters.AddWithValue("@Fecha_Apertura", cuenta.Fecha_Apertura);
-                        comando.Parameters.AddWithValue("@Saldo", cuenta.Saldo);
                         comando.Parameters.AddWithValue("@ID_Sucursal", cuenta.ID_Sucursal);
 
                         comando.ExecuteNonQuery();
@@ -151,8 +147,7 @@ namespace EvaluaciónParcial2Banco.Models
                                     ID_Cuenta = (int)lector["ID_Cuenta"],
                                     Tipo = lector["Tipo"].ToString(),
                                     ID_Cliente = lector["ID_Cliente"].ToString(),
-                                    Fecha_Apertura = lector["Fecha_Apertura"].ToString(),
-                                    Saldo = (double)lector["Saldo"],
+                                    Fecha_Apertura = Convert.ToDateTime(lector["Fecha_Apertura"]),
                                     ID_Sucursal = lector["ID_Sucursal"].ToString()
                                 };
                             }
@@ -193,8 +188,7 @@ namespace EvaluaciónParcial2Banco.Models
                                     ID_Cuenta = (int)lector["ID_Cuenta"],
                                     Tipo = lector["Tipo"].ToString(),
                                     ID_Cliente = lector["ID_Cliente"].ToString(),
-                                    Fecha_Apertura = lector["Fecha_Apertura"].ToString(),
-                                    Saldo = (double)lector["Saldo"],
+                                    Fecha_Apertura = Convert.ToDateTime(lector["Fecha_Apertura"]),
                                     ID_Sucursal = lector["ID_Sucursal"].ToString()
                                 });
                             }

@@ -30,16 +30,18 @@
         {
             this.lbl_ListaCuentas = new System.Windows.Forms.Label();
             this.lbl_TituloCuentas = new System.Windows.Forms.Label();
-            this.lst_ListaCuentas = new System.Windows.Forms.ListBox();
+            this.lst_Cuentas = new System.Windows.Forms.ListBox();
             this.lbl_Tipo = new System.Windows.Forms.Label();
             this.lbl_IdSucursal = new System.Windows.Forms.Label();
             this.lbl_IdCliente = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txt_Sucursal = new System.Windows.Forms.TextBox();
+            this.txt_Cliente = new System.Windows.Forms.TextBox();
             this.btn_Agregar = new System.Windows.Forms.Button();
             this.btn_Eliminar = new System.Windows.Forms.Button();
             this.btn_Cancelar = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmb_Tipo = new System.Windows.Forms.ComboBox();
+            this.lbl_FechaApertura = new System.Windows.Forms.Label();
+            this.dtp_FechaApertura = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // lbl_ListaCuentas
@@ -57,27 +59,28 @@
             // 
             this.lbl_TituloCuentas.AutoSize = true;
             this.lbl_TituloCuentas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_TituloCuentas.Location = new System.Drawing.Point(214, 86);
+            this.lbl_TituloCuentas.Location = new System.Drawing.Point(309, 67);
             this.lbl_TituloCuentas.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_TituloCuentas.Name = "lbl_TituloCuentas";
             this.lbl_TituloCuentas.Size = new System.Drawing.Size(150, 25);
             this.lbl_TituloCuentas.TabIndex = 1;
             this.lbl_TituloCuentas.Text = "Nueva Cuenta";
             // 
-            // lst_ListaCuentas
+            // lst_Cuentas
             // 
-            this.lst_ListaCuentas.FormattingEnabled = true;
-            this.lst_ListaCuentas.ItemHeight = 25;
-            this.lst_ListaCuentas.Location = new System.Drawing.Point(525, 86);
-            this.lst_ListaCuentas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.lst_ListaCuentas.Name = "lst_ListaCuentas";
-            this.lst_ListaCuentas.Size = new System.Drawing.Size(464, 329);
-            this.lst_ListaCuentas.TabIndex = 2;
+            this.lst_Cuentas.FormattingEnabled = true;
+            this.lst_Cuentas.ItemHeight = 25;
+            this.lst_Cuentas.Location = new System.Drawing.Point(600, 86);
+            this.lst_Cuentas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.lst_Cuentas.Name = "lst_Cuentas";
+            this.lst_Cuentas.Size = new System.Drawing.Size(389, 329);
+            this.lst_Cuentas.TabIndex = 2;
+            this.lst_Cuentas.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lst_Cuentas_MouseDoubleClick_1);
             // 
             // lbl_Tipo
             // 
             this.lbl_Tipo.AutoSize = true;
-            this.lbl_Tipo.Location = new System.Drawing.Point(28, 147);
+            this.lbl_Tipo.Location = new System.Drawing.Point(57, 118);
             this.lbl_Tipo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_Tipo.Name = "lbl_Tipo";
             this.lbl_Tipo.Size = new System.Drawing.Size(147, 25);
@@ -87,7 +90,7 @@
             // lbl_IdSucursal
             // 
             this.lbl_IdSucursal.AutoSize = true;
-            this.lbl_IdSucursal.Location = new System.Drawing.Point(86, 238);
+            this.lbl_IdSucursal.Location = new System.Drawing.Point(115, 209);
             this.lbl_IdSucursal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_IdSucursal.Name = "lbl_IdSucursal";
             this.lbl_IdSucursal.Size = new System.Drawing.Size(89, 25);
@@ -97,28 +100,28 @@
             // lbl_IdCliente
             // 
             this.lbl_IdCliente.AutoSize = true;
-            this.lbl_IdCliente.Location = new System.Drawing.Point(102, 194);
+            this.lbl_IdCliente.Location = new System.Drawing.Point(131, 165);
             this.lbl_IdCliente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_IdCliente.Name = "lbl_IdCliente";
             this.lbl_IdCliente.Size = new System.Drawing.Size(73, 25);
             this.lbl_IdCliente.TabIndex = 9;
             this.lbl_IdCliente.Text = "Cliente";
             // 
-            // textBox3
+            // txt_Sucursal
             // 
-            this.textBox3.Location = new System.Drawing.Point(193, 233);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(244, 30);
-            this.textBox3.TabIndex = 8;
+            this.txt_Sucursal.Location = new System.Drawing.Point(222, 204);
+            this.txt_Sucursal.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_Sucursal.Name = "txt_Sucursal";
+            this.txt_Sucursal.Size = new System.Drawing.Size(355, 30);
+            this.txt_Sucursal.TabIndex = 8;
             // 
-            // textBox4
+            // txt_Cliente
             // 
-            this.textBox4.Location = new System.Drawing.Point(193, 189);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(244, 30);
-            this.textBox4.TabIndex = 7;
+            this.txt_Cliente.Location = new System.Drawing.Point(222, 160);
+            this.txt_Cliente.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_Cliente.Name = "txt_Cliente";
+            this.txt_Cliente.Size = new System.Drawing.Size(355, 30);
+            this.txt_Cliente.TabIndex = 7;
             // 
             // btn_Agregar
             // 
@@ -129,6 +132,7 @@
             this.btn_Agregar.TabIndex = 11;
             this.btn_Agregar.Text = "Agregar";
             this.btn_Agregar.UseVisualStyleBackColor = true;
+            this.btn_Agregar.Click += new System.EventHandler(this.btn_Agregar_Click);
             // 
             // btn_Eliminar
             // 
@@ -139,6 +143,7 @@
             this.btn_Eliminar.TabIndex = 12;
             this.btn_Eliminar.Text = "Eliminar";
             this.btn_Eliminar.UseVisualStyleBackColor = true;
+            this.btn_Eliminar.Click += new System.EventHandler(this.btn_Eliminar_Click_1);
             // 
             // btn_Cancelar
             // 
@@ -149,34 +154,54 @@
             this.btn_Cancelar.TabIndex = 13;
             this.btn_Cancelar.Text = "Cancelar";
             this.btn_Cancelar.UseVisualStyleBackColor = true;
+            this.btn_Cancelar.Click += new System.EventHandler(this.btn_Cancelar_Click_1);
             // 
-            // comboBox1
+            // cmb_Tipo
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cmb_Tipo.FormattingEnabled = true;
+            this.cmb_Tipo.Items.AddRange(new object[] {
             "Seleccione una Opción",
             "Corriente",
             "Ahorro"});
-            this.comboBox1.Location = new System.Drawing.Point(193, 139);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(244, 33);
-            this.comboBox1.TabIndex = 14;
+            this.cmb_Tipo.Location = new System.Drawing.Point(222, 110);
+            this.cmb_Tipo.Name = "cmb_Tipo";
+            this.cmb_Tipo.Size = new System.Drawing.Size(355, 33);
+            this.cmb_Tipo.TabIndex = 14;
+            // 
+            // lbl_FechaApertura
+            // 
+            this.lbl_FechaApertura.AutoSize = true;
+            this.lbl_FechaApertura.Location = new System.Drawing.Point(30, 256);
+            this.lbl_FechaApertura.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_FechaApertura.Name = "lbl_FechaApertura";
+            this.lbl_FechaApertura.Size = new System.Drawing.Size(174, 25);
+            this.lbl_FechaApertura.TabIndex = 15;
+            this.lbl_FechaApertura.Text = "Fecha de Apertura";
+            // 
+            // dtp_FechaApertura
+            // 
+            this.dtp_FechaApertura.Location = new System.Drawing.Point(222, 251);
+            this.dtp_FechaApertura.Name = "dtp_FechaApertura";
+            this.dtp_FechaApertura.Size = new System.Drawing.Size(355, 30);
+            this.dtp_FechaApertura.TabIndex = 16;
             // 
             // frm_Cuentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1020, 451);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.dtp_FechaApertura);
+            this.Controls.Add(this.lbl_FechaApertura);
+            this.Controls.Add(this.cmb_Tipo);
             this.Controls.Add(this.btn_Cancelar);
             this.Controls.Add(this.btn_Eliminar);
             this.Controls.Add(this.btn_Agregar);
             this.Controls.Add(this.lbl_IdSucursal);
             this.Controls.Add(this.lbl_IdCliente);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.txt_Sucursal);
+            this.Controls.Add(this.txt_Cliente);
             this.Controls.Add(this.lbl_Tipo);
-            this.Controls.Add(this.lst_ListaCuentas);
+            this.Controls.Add(this.lst_Cuentas);
             this.Controls.Add(this.lbl_TituloCuentas);
             this.Controls.Add(this.lbl_ListaCuentas);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -193,15 +218,17 @@
 
         private System.Windows.Forms.Label lbl_ListaCuentas;
         private System.Windows.Forms.Label lbl_TituloCuentas;
-        private System.Windows.Forms.ListBox lst_ListaCuentas;
+        private System.Windows.Forms.ListBox lst_Cuentas;
         private System.Windows.Forms.Label lbl_Tipo;
         private System.Windows.Forms.Label lbl_IdSucursal;
         private System.Windows.Forms.Label lbl_IdCliente;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txt_Sucursal;
+        private System.Windows.Forms.TextBox txt_Cliente;
         private System.Windows.Forms.Button btn_Agregar;
         private System.Windows.Forms.Button btn_Eliminar;
         private System.Windows.Forms.Button btn_Cancelar;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmb_Tipo;
+        private System.Windows.Forms.Label lbl_FechaApertura;
+        private System.Windows.Forms.DateTimePicker dtp_FechaApertura;
     }
 }
